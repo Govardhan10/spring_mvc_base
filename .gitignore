@@ -6,8 +6,10 @@
 *.project
 *.settings
 *.springBeans
+*.iml
 #################
 # Directories
 #################
 target/
 bin/
+.idea/
