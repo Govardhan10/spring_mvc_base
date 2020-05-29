@@ -7,7 +7,15 @@ import java.util.List;
 
 @Entity
 @Table(name = "goals")
+@NamedQueries({
+		@NamedQuery(name = Goal.FINAL_GOAL_REPORTS, query = "select new com.pluralsight.model.GoalReport(g.minutes,e.minutes,e.activity)" +
+				"from Goal g, Exercise e where g.id=e.id"),
+		@NamedQuery(name = Goal.FINAL_ALL_GOALS, query = "select g from Goal g")
+})
 public class Goal {
+
+	public static final String FINAL_GOAL_REPORTS = "findGoalReports";
+	public static final String FINAL_ALL_GOALS = "findAllGoals";
 
 	@Id
 	@GeneratedValue
